@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <remote name="aosp" fetch=".." review="https://android-review.googlesource.com/" />
+  <remote  name="aosp" fetch=".." review="https://android-review.googlesource.com/" />
+  <remote  name="github" fetch="https://github.com/MT6983-Dev" revision="lineage-21" sync-j="4" />
   <default revision="master-kernel-build-2021" remote="aosp" sync-j="4" />
 
   <superproject name="kernel/superproject" remote="aosp" revision="common-android12-5.10-2024-08" />
+
+  <project path="kernel-5.10" name="android_kernel_oneplus_mt6983" remote="github" >
+    <linkfile dest="build.config" src="build.config.oplus6983" />
+  </project>
+  <project path="vendor" name="android_kernel_modules_oneplus_mt6983" remote="github" />
 
   <project path="build" name="kernel/build" />
   <project path="hikey-modules" name="kernel/hikey-modules" revision="6f0a2a72f849d8bb8e708587582c20019ef91a3c" upstream="android12-5.10" dest-branch="android12-5.10" />
